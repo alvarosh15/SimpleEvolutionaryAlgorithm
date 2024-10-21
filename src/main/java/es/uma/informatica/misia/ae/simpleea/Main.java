@@ -12,9 +12,13 @@ public class Main {
 			System.err.println("Arguments: <population size> <function evaluations> <bitflip probability> <problem size> [<random seed>]");
 			return;
 		}
-		
-		int n = Integer.parseInt(args[3]);
-		Problem problem = new Onemax(n);
+		int[] weights = {10, 20, 30, 40, 50, 10, 30, 30, 50, 30};
+		int[] values = {60, 100, 120, 180, 300, 100, 300, 100, 100, 100};
+		int capacity = 100;
+		double penaltyFactor = 10;
+		Problem problem = new Knapsack(weights, values, capacity, penaltyFactor);
+		//int n = Integer.parseInt(args[3]);
+		//Problem problem = new Onemax(n);
 		
 		Map<String, Double> parameters = readEAParameters(args);
 		EvolutionaryAlgorithm evolutionaryAlgorithm = new EvolutionaryAlgorithm(parameters, problem);
